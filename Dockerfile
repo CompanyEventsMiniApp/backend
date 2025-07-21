@@ -16,11 +16,7 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.jar app.jar
 
-ENV POSTGRES_DB_URL=jdbc:postgresql://postgres:5431/company-event \
-    POSTGRES_DB_USER=postgres \
-    POSTGRES_DB_PASSWORD=root \
-    SHOW_SQL=true \
-    TELEGRAM_BOT_API_ADDRESS=http://company-events-telegram-bot:8081
+ENV SHOW_SQL=true \
 
 EXPOSE 8080
 
