@@ -16,7 +16,7 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.jar app.jar
 
-ENV SHOW_SQL=true \
+ENV SHOW_SQL=true
 
 EXPOSE 8080
 
