@@ -15,6 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                     "https://companyeventsminiapp.github.io", // GitHub Pages
+                    "https://jakuba.olgarhythm.ru/company-events/", // Фронтенд
                     "https://web.telegram.org", // Telegram Web App
                     "http://localhost:3000" // Для локальной разработки
                 )
