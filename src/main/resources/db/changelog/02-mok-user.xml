@@ -3,11 +3,12 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
 
-
-    <include file="common/columns.xml" relativeToChangelogFile="true"/>
-
-    <include file="changelog/01-create-scheme.xml" relativeToChangelogFile="true"/>
-
-    <include file="changelog/02-mok-user.xml" relativeToChangelogFile="true"/>
-
+    <changeSet id="02-add-test-users" author="olgaRhythm">
+        <insert tableName="user">
+            <column name="id" valueComputed="gen_random_uuid()"/>
+            <column name="tg_user_id" value="123456789"/>
+            <column name="name" value="Test User"/>
+            <column name="created_at" valueComputed="now()"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
