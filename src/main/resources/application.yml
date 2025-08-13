@@ -23,6 +23,11 @@ server:
   port: 3005
   address: 0.0.0.0
   forward-headers-strategy: native
+  ssl:
+    enabled: true
+    key-store: ${SERVER_SSL_KEY_STORE}
+    key-store-password: "changeit"
+    key-store-type: PKCS12
 
 springdoc:
   api-docs:

@@ -16,11 +16,12 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.jar app.jar
 
-ENV SHOW_SQL=true
+RUN mkdir -p /etc/letsencrypt/live/events.olgarhythm.ru
 
-EXPOSE 8080
+ENV SHOW_SQL=true
+EXPOSE 8080 3005 8443
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-  CMD curl -f http://localhost:8080/actuator/health || exit 1
+  CMD curl -f http://localhost:3005/actuator/health || exit 1
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
